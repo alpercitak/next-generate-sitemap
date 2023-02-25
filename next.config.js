@@ -4,15 +4,13 @@ const isDocker = process.env.BUILD_TYPE === 'docker';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    images: {
-      unoptimized: true,
-    },
-  },
-  assetPrefix: isProduction && !isDocker ? '/next-generate-sitemap' : '',
-  publicRuntimeConfig: {
-    linkPrefix: isProduction && !isDocker ? '/next-generate-sitemap' : '',
-  },
 };
+
+if (isProduction && !isDocker) {
+  nextConfig.assetPrefix = '/next-generate-sitemap';
+  nextConfig.publicRuntimeConfig = {
+    linkPrefix: '/next-generate-sitemap',
+  };
+}
 
 module.exports = nextConfig;
