@@ -4,6 +4,10 @@ const isDocker = process.env.BUILD_TYPE === 'docker';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    loader: 'akamai',
+    path: '',
+  },
 };
 
 if (isProduction && !isDocker) {
