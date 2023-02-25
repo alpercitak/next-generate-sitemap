@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  app:
+    image: next-generate-sitemap
+    build:
+      target: deploy
+    restart: always
+    ports:
+      - 3000:80

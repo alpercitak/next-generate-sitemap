@@ -1,4 +1,5 @@
 const isProduction = process.env.NODE_ENV === 'production';
+const isDocker = process.env.BUILD_TYPE === 'docker';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -8,9 +9,9 @@ const nextConfig = {
       unoptimized: true,
     },
   },
-  assetPrefix: isProduction ? '/next-generate-sitemap' : '',
+  assetPrefix: isProduction && !isDocker ? '/next-generate-sitemap' : '',
   publicRuntimeConfig: {
-    linkPrefix: isProduction ? '/next-generate-sitemap' : '',
+    linkPrefix: isProduction && !isDocker ? '/next-generate-sitemap' : '',
   },
 };
 
