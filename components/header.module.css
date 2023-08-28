@@ -1,0 +1,13 @@
+.header {
+  border: 1px solid #eee;
+  height: 40px;
+  position: sticky;
+  display: flex;
+  align-items: center;
+}
+
+.headerList {
+  display: inline-flex;
+  list-style: none;
+  gap: 16px;
+}
