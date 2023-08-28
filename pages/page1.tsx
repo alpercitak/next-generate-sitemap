@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import useCounterStore from '../stores/counter';
+import { useCounterStore } from '../stores/counter';
 
 const Page1: NextPage = () => {
   const { counter, increment } = useCounterStore((state: any) => {
