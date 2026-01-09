@@ -8,6 +8,7 @@ const nextConfig = {
     loader: 'akamai',
     path: '.',
   },
+  output: 'export',
 };
 
 if (isProduction && !isDocker) {
