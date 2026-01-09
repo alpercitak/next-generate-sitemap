@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://alpercitak.github.io/next-generate-sitemap
-
-# Sitemaps
-Sitemap: https://alpercitak.github.io/next-generate-sitemap/sitemap.xml
