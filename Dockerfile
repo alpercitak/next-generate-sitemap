@@ -1,4 +1,4 @@
-FROM node:18-alpine AS base
+FROM node:25-alpine AS base
 
 WORKDIR /app
 RUN npm i -g pnpm
@@ -14,10 +14,9 @@ COPY ./package.json .
 RUN pnpm i --offline
 
 COPY . .
-RUN pnpm run build
-RUN pnpm run export
+RUN pnpm build
 
-FROM nginx:1.23.3-alpine-slim AS deploy
+FROM nginx:1.29.4-alpine-slim AS deploy
 
 COPY nginx /etc/nginx
 WORKDIR /usr/share/nginx/html
