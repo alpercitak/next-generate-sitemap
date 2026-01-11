@@ -1,15 +1,20 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
-export const useCounterStore = create(
+interface CounterStore {
+  counter: number;
+  increment: () => void;
+}
+
+export const useCounterStore = create<CounterStore>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       counter: 0,
-      increment: () => set((state: any) => ({ counter: state.counter + 1 })),
+      increment: () => set((state) => ({ counter: state.counter + 1 })),
     }),
     {
-      name: 'next-generate-sitemap-counter', // name of the item in the storage (must be unique)
-      storage: createJSONStorage(() => localStorage), // (optional) by default, 'localStorage' is used
+      name: 'next-generate-sitemap-counter',
+      storage: createJSONStorage(() => localStorage),
     }
   )
 );

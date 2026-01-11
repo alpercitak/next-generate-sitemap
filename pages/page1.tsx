@@ -2,9 +2,8 @@ import type { NextPage } from 'next';
 import { useCounterStore } from '../stores/counter';
 
 const Page1: NextPage = () => {
-  const { counter, increment } = useCounterStore((state: any) => {
-    return { counter: state.counter, increment: state.increment };
-  });
+  const counter = useCounterStore((state) => state.counter);
+  const increment = useCounterStore((state) => state.increment);
 
   return (
     <>
