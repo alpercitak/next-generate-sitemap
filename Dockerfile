@@ -16,7 +16,7 @@ RUN pnpm i --offline
 COPY . .
 RUN pnpm build
 
-FROM nginx:1.29.7-alpine-slim AS deploy
+FROM nginx:1.29.8-alpine-slim AS deploy
 
 COPY nginx /etc/nginx
 WORKDIR /usr/share/nginx/html
